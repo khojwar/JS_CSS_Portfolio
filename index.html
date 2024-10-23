@@ -10,6 +10,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        .hidden { display: none; }
+        .message-box {
+          margin-top: 20px;
+          padding: 15px;
+          border-radius: 5px;
+          font-size: 16px;
+          max-width: 500px;
+          margin: 0 auto;
+        }
+        .success {
+          background-color: #d4edda;
+          color: #155724;
+          border: 1px solid #c3e6cb;
+        }
+        .error {
+          background-color: #f8d7da;
+          color: #721c24;
+          border: 1px solid #f5c6cb;
+        }
+      </style>
 </head>
 <body class="main-content">
     <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&& home page (left side) &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
@@ -32,7 +54,7 @@
                     I prioritize collaboration and continuous learning in my work.
                 </p>
                 <div class="btn-con">
-                    <a href="" class="main-btn">
+                    <a href="./React resume.pdf" class="main-btn">
                         <span class="btn-text">Download CV</span>
                         <span class="btn-icon"><i class="fas fa-download"></i></span>
                     </a>
@@ -506,24 +528,56 @@
                         </div>
                     </div>
                     <div class="right-contact">
-                        <form action="" class="contact-form">
+                    <!--
+                        <form action="" class="contact-form" id="contactForm" >
                             <div class="input-control i-c-2">
-                                <input type="text" required placeholder="YOUR NAME">
-                                <input type="email" required placeholder="YOUR EMAIL">
+                                <input type="text" id="name" name="name" required placeholder="YOUR NAME">
+                                <input type="email" id="email" name="email" required placeholder="YOUR EMAIL">
                             </div>
                             <div class="input-control">
-                                <input type="text" required placeholder="ENTER SUBJECT">
+                                <input type="text" name="subject" id="subject" required placeholder="ENTER SUBJECT">
                             </div>
                             <div class="input-control">
-                                <textarea name="" id="" cols="15" rows="8" placeholder="Message Here..."></textarea>
+                                <textarea name="message" id="message" cols="15" rows="8" placeholder="Message Here..."></textarea>
                             </div>
                             <div class="submit-btn">
                                 <a href="#" class="main-btn">
-                                    <span class="btn-text">Download CV</span>
+                                    <span class="btn-text">Submit</span>
                                     <span class="btn-icon"><i class="fas fa-download"></i></span>
                                 </a>
-                            </div>
+                            </div> 
+                            <button type="submit">Submit</button>
                         </form>
+
+                    -->
+
+                        <form id="contact-form" name="contact-form" class="contact-form input-control">
+                                <label for="name">Name:</label><br>
+                                <input type="text" id="name" name="name" required><br><br>
+                                
+                                <label for="email">Email:</label><br>
+                                <input type="email" id="email" name="email" required><br><br>
+                            
+                            <label for="subject">Subject:</label><br>
+                            <input type="text" id="subject" name="subject" required><br><br>
+                            
+                            <label for="message">Message:</label><br>
+                            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                            
+                            
+
+                            <div class="submit-btn">
+                                <a href="#" class="main-btn">
+                                    <span class="btn-text">
+                                        <button type="submit" style="all: unset;">Submit</button>
+                                    </span>
+                                </a>
+                            </div>
+                            
+                        </form>
+                        
+                        <div id="response" class="message-box hidden"></div>
+
                     </div>
                 </div>
             </div>
@@ -556,3 +610,8 @@
     <script src="app.js"></script>
 </body>
 </html>
+
+
+
+
+<!-- https://script.google.com/macros/s/AKfycbxykhaJPXBiJ_A91ZpZDL_vJjEa7bGbMihl5C6WIU7toE80C_UxveyvFzoDulwm5DQn/exec -->
