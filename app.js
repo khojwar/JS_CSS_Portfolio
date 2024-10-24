@@ -1,4 +1,5 @@
 (function () {
+  
     [...document.querySelectorAll(".control")].forEach(button => {
         button.addEventListener("click", function() {
             document.querySelector(".active-btn").classList.remove("active-btn");
@@ -8,11 +9,24 @@
         });
     });
 
+    // Theme switcher
     document.querySelector(".theme-btn").addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
     });
 
 
+    // Typed.js for auto typing effect
+    var typed = new Typed('.auto-type', {
+        
+      strings: ['an Instructor.', 'a Web Developer.'],
+      typeSpeed: 130,
+      backSpeed: 130,
+      loop: true,
+    });
+
+
+
+    // Contact form submission handler using Google Apps Script (GAS) as the backend server for form data collection and email notification to the site owner (you) 
     const form = document.getElementById('contact-form');
     const responseDiv = document.getElementById('response');
 
@@ -50,6 +64,11 @@
       });
     });
 
+    
+
 })();
+
+
+
 
 
