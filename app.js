@@ -41,7 +41,7 @@
         data.append(pair[0], pair[1]);
       }
 
-      fetch('https://script.google.com/macros/s/AKfycbx-NLWGwfVbR3sb9zjNWKIqZvoyIJ71HcPu9XXaPSv56yum9tjm6Lzm_WaSevMksrVf/exec', {
+      fetch('https://script.google.com/macros/s/AKfycbwH_ECDBuL73btLui2rBH6j6MA_45n8saSGd5QcxoMABvkDMP__l89Fv_-sd4py6QmR/exec', {
         method: 'POST',
         body: data,
       })
