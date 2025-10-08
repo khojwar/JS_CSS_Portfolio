@@ -221,7 +221,7 @@ section {
 }
 .about-container .right-about {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);  
   grid-gap: 2rem;
 }
 .about-container .right-about .about-item {
@@ -427,7 +427,7 @@ section {
 .portfolios .portfolio-item .hover-items {
   width: 100%;
   height: 100%;
-  background-color: var(--color-secondary);
+  background-color: color-mix(in srgb, var(--color-primary) 60%, transparent);
   position: absolute;
   left: 0;
   top: 0;
@@ -436,7 +436,7 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  opacity: 0;
+  opacity: 0;   
   transform: scale(0);
   transition: all 0.4s ease-in-out;
 }
@@ -978,4 +978,109 @@ section {
   }
 }
 
+
 /*# sourceMappingURL=styles.css.map */
+
+
+
+
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+/* === Portfolio Section === */
+#portfolio {
+  position: relative;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+#portfolio .port-text {
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--color-grey-2);
+  margin-bottom: 2rem;
+}
+
+/* Portfolio Grid */
+#portfolio .portfolios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Portfolio Item */
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  background-color: var(--color-grey-5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Portfolio Image */
+.portfolio-item img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  transition: all 0.4s ease;
+  filter: grayscale(90%);
+}
+
+.portfolio-item:hover img {
+  filter: grayscale(0);
+  transform: scale(1.05);
+}
+
+/* Portfolio Info */
+.portfolio-info {
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+}
+
+.portfolio-info h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.portfolio-info .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.portfolio-info .tag {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* GitHub Icon Link */
+.portfolio-info .github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+  transition: color 0.3s ease;
+}
+
+.portfolio-info .github-link:hover {
+  color: var(--color-white);
+}
+
+.portfolio-info .github-link i {
+  font-size: 1.2rem;
+}

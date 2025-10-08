@@ -32,6 +32,7 @@
           border: 1px solid #f5c6cb;
         }
       </style>
+      
 </head>
 <body class="main-content">
     <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&& home page (left side) &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
@@ -53,7 +54,7 @@
                     <p>Hi, I'm <span class="auto-type"></span></p>
                 </h1>
                 <p style="text-align: justify;">
-                    I'm a Web Developer with expertise in HTML, CSS, JS, ReactJS, NextJS, Mongodb, Mysql and modern frameworks. 
+                    I'm a Web Developer with expertise in HTML, CSS, JS, ReactJS, NextJS, Mongodb, postgresql, Mysql and modern frameworks. 
                     My portfolio showcases visually appealing and responsive web designs, interactive user experiences, and a commitment to performance optimization, accessibility, and cross-browser compatibility. 
                     I prioritize collaboration and continuous learning in my work.
                 </p>
@@ -96,127 +97,60 @@
                 <div class="right-about">
                     <div class="about-item">
                         <div class="abt-text">
-                            <p class="large-text">25+</p>
+                            <p class="large-text">10+</p>
                             <p class="small-text">Projects <br /> Completed</p>
-                        </div>
-                    </div>
-                    <!-- <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">1+</p>
-                            <p class="small-text">Years of <br /> experience</p>
-                        </div>
-                    </div> -->
-                    <!-- <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">300+</p>
-                            <p class="small-text">Happy <br /> Clients</p>
                         </div>
                     </div>
                     <div class="about-item">
                         <div class="abt-text">
-                            <p class="large-text">400+</p>
-                            <p class="small-text">Customer <br /> reviews</p>
+                            <p class="large-text">1</p>
+                            <p class="small-text">Years of <br /> experience</p>
                         </div>
-                    </div> -->
+                    </div>
+
+                    
                 </div>
             </div>
 
-            <!-- Skill section -->
+            <!-- Skills -->
             <div class="about-stats">
                 <h4 class="stat-title">My Skills</h4>
-                <div class="progress-bars">
-                    <div class="progress-bar">
-                        <p class="prog-title">html</p>
-                        <div class="progress-con">
-                            <p class="prog-text">90%</p>
-                            <div class="progress">
-                                <span class="html"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">css</p>
-                        <div class="progress-con">
-                            <p class="prog-text">75%</p>
-                            <div class="progress">
-                                <span class="css"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">javascript</p>
-                        <div class="progress-con">
-                            <p class="prog-text">85%</p>
-                            <div class="progress">
-                                <span class="js"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">ReactJS</p>
-                        <div class="progress-con">
-                            <p class="prog-text">80%</p>
-                            <div class="progress">
-                                <span class="react"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">NextJS</p>
-                        <div class="progress-con">
-                            <p class="prog-text">80%</p>
-                            <div class="progress">
-                                <span class="react"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Mongodb</p>
-                        <div class="progress-con">
-                            <p class="prog-text">80%</p>
-                            <div class="progress">
-                                <span class="react"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">MySql</p>
-                        <div class="progress-con">
-                            <p class="prog-text">80%</p>
-                            <div class="progress">
-                                <span class="react"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Python</p>
-                        <div class="progress-con">
-                            <p class="prog-text">80%</p>
-                            <div class="progress">
-                                <span class="python"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Tensorflow</p>
-                        <div class="progress-con">
-                            <p class="prog-text">80%</p>
-                            <div class="progress">
-                                <span class="tf"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Php</p>
-                        <div class="progress-con">
-                            <p class="prog-text">85%</p>
-                            <div class="progress">
-                                <span class="react"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="progress-container" class="progress-bars"></div>
             </div>
+
+            <script>
+                // 🔹 Define skills data
+                const skills = [
+                { title: 'ReactJS', percent: 90 },
+                { title: 'NextJS', percent: 75 },
+                {title: 'NodeJS', percent: 85 },
+                {title: 'ExpressJS', percent: 85},
+                { title: 'MongoDB', percent: 80 },
+                {title: 'Mongoose', percent: 80 },
+                { title: 'MySQL', percent: 85 },
+                { title: 'Python', percent: 90 },
+                { title: 'Tensorflow', percent: 60 },
+                {title: 'laravel', percent: 80}
+                ];
+
+                // 🔹 Generate reusable skill progress component
+                const container = document.getElementById('progress-container');
+
+                skills.forEach(skill => {
+                const bar = document.createElement('div');
+                bar.classList.add('progress-bar');
+                bar.innerHTML = `
+                    <p class="prog-title">${skill.title}</p>
+                    <div class="progress-con">
+                    <p class="prog-text">${skill.percent}%</p>
+                    <div class="progress">
+                        <span style="width: ${skill.percent}%;"></span>
+                    </div>
+                    </div>
+                `;
+                container.appendChild(bar);
+                });
+            </script>
 
             <!-- Timeline -->
             <h4 class="stat-title">My Timeline</h4>
@@ -227,9 +161,6 @@
                     </div>
                     <p class="tl-duration">2020 - 2024</p>
                     <h5>MCIS<span> - Nepal College of Information Technology, Balkumari</span></h5>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi vero fugit.
-                    </p> -->
                 </div>
                 <div class="timeline-item">
                     <div class="tl-icon">
@@ -237,9 +168,6 @@
                     </div>
                     <p class="tl-duration">2015 - 2019</p>
                     <h5>BCA<span> - Crimson College of Technology, Butwal</span></h5>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi vero fugit.
-                    </p> -->
                 </div>
                 <div class="timeline-item">
                     <div class="tl-icon">
@@ -247,9 +175,6 @@
                     </div>
                     <p class="tl-duration">2013 - 2015</p>
                     <h5>HSEB<span> - Madhyabindu Multiple Campus, Nawalparasi</span></h5>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi vero fugit.
-                    </p> -->
                 </div>
                 <div class="timeline-item">
                     <div class="tl-icon">
@@ -257,247 +182,85 @@
                     </div>
                     <p class="tl-duration">2001 - 2012</p>
                     <h5>SLC<span> - Shree Chandeshwari Secondary School, Nawalparasi</span></h5>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi vero fugit.
-                    </p> -->
                 </div>
             </div>
         </section>
         
         <!-- ********************* my work section ************************************************* -->
+
         <section class="container" id="portfolio">
             <div class="main-title">
-                <h2>My <span>Work</span><span class="bg-text">My Work</span></h2>
+            <h2>My <span>Work</span><span class="bg-text">My Work</span></h2>
             </div>
-            <p class="port-text" style="font-size: 1.3rem;">
-                Here is some of my work that I've done in various programming languages.
+            <p class="port-text" style="font-size: 1.3rem; text-align:center;">
+            Here are some of my works done in various technologies.
             </p>
-            <div class="portfolios">
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port1.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3 style="text-align: center; padding-inline: 4px;">Mystry Message App using NextJS <br> (Source code)</h3>
-                        <div class="icons">
-                            <a href="https://github.com/khojwar/mystry_message_app_nextjs" target="_blank" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <!-- <a href="#" class="icon">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port2.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3 style="text-align: center; padding-inline: 4px;">Tweet App using Django <br> (Source code)</h3>
-                        <div class="icons">
-                            <a href="https://github.com/khojwar/django-tweet-app" target="_blank" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <!-- <a href="#" class="icon">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port3.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3 style="text-align: center; padding-inline: 4px;">Blog App using React and appwrite <br> (Source code)</h3>
-                        <div class="icons">
-                            <a href="https://github.com/khojwar/appwriteBlog" target="_blank" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <!-- <a href="#" class="icon">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port4.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3 style="text-align: center; padding-inline: 4px;">Feedback App using Php <br> (Source code)</h3>
-                        <div class="icons">
-                            <a href="https://github.com/khojwar/feedback_app_php" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <!-- <a href="#" class="icon">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port5.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3 style="text-align: center; padding-inline: 4px;">Basic Authentication using NextJS <br> (Source code)</h3>
-                        <div class="icons">
-                            <a href="https://github.com/khojwar/nextjs_authentication" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <!-- <a href="#" class="icon">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port2.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3 style="text-align: center; padding-inline: 4px;">Responsive Modern Website Clone using HTML and CSS <br> (Source code)</h3>
-                        <div class="icons">
-                            <a href="https://github.com/khojwar/Responsive-Modern-website-clone-using-html-and-css" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <!-- <a href="#" class="icon">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a> -->
-                        </div>
-                    </div>
-                </div> 
-
-                <!-- <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port7.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Project Source</h3>
-                        <div class="icons">
-                            <a href="#" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+            <div class="portfolios" id="portfolio-container"></div>
         </section>
 
-        <!-- ********************* blogs section **************************************************** -->
-        <!-- <section class="container" id="blogs">
-            <div class="blogs-content">
-                <div class="main-title">
-                    <h2>My <span>Blogs</span><span class="bg-text">My Blogs</span></h2>
-                </div>
-                <div class="blogs">
-                    <div class="blog">
-                        <img src="img/port6.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                How to Create Your Own Website
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog1.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                How to Become an Expert in Web Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Become a Web Designer in 10 Days
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog3.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Debbuging made easy with Web Inspector
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/port1.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Get started with Web Design and UI Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/port3.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                This is what you need to know about Web Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
+       <script>
+            const projects = [
+                {
+                name: "Ecommerce App (Frontend)",
+                image: "img/ecommerce-design.png",
+                tags: ["ReactJS","NextJS"],
+                github: "https://github.com/khojwar/ecom_fe_cms",
+                },
+                {
+                name: "Ecommerce App (Backend)",
+                image: "img/ecommerce-design.png",
+                tags: ["NodeJS", "ExpressJS", "MongoDB", "PostgresSQL"],
+                github: "https://github.com/khojwar/ecom_be",
+                },
+                {
+                name: "Mystery Message App",
+                image: "img/port1.jpg",
+                tags: ["NextJS", "NodeJS", "MongoDB"],
+                github: "https://github.com/khojwar/mystry_message_app_nextjs",
+                },
+                {
+                name: "Tweet App",
+                image: "img/port2.jpg",
+                tags: ["Django", "Python"],
+                github: "https://github.com/khojwar/django-tweet-app",
+                },
+                {
+                name: "Blog App",
+                image: "img/port3.jpg",
+                tags: ["React", "Appwrite"],
+                github: "https://github.com/khojwar/appwriteBlog",
+                },
+                {
+                name: "Feedback App",
+                image: "img/port4.jpg",
+                tags: ["PHP", "MySQL"],
+                github: "https://github.com/khojwar/php-feedback-app",
+                },
+            ];
 
+            const containerr = document.getElementById("portfolio-container");
+
+            containerr.innerHTML = projects
+                .map(
+                (p) => `
+                <div class="portfolio-item">
+                    <img src="${p.image}" alt="${p.name}">
+                    <div class="portfolio-info">
+                    <h3>${p.name}</h3>
+                    <div class="tags">
+                        ${p.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
+                    </div>
+                    <a href="${p.github}" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    </div>
+                </div>
+                `
+                )
+                .join("");
+            </script>
+
+       
         <!-- ********************* contact section ************************************************** -->
         <section class="container contact" id="contact">
             <div class="contact-container">
@@ -575,29 +338,6 @@
                         </div>
                     </div>
                     <div class="right-contact">
-                    <!--
-                        <form action="" class="contact-form" id="contactForm" >
-                            <div class="input-control i-c-2">
-                                <input type="text" id="name" name="name" required placeholder="YOUR NAME">
-                                <input type="email" id="email" name="email" required placeholder="YOUR EMAIL">
-                            </div>
-                            <div class="input-control">
-                                <input type="text" name="subject" id="subject" required placeholder="ENTER SUBJECT">
-                            </div>
-                            <div class="input-control">
-                                <textarea name="message" id="message" cols="15" rows="8" placeholder="Message Here..."></textarea>
-                            </div>
-                            <div class="submit-btn">
-                                <a href="#" class="main-btn">
-                                    <span class="btn-text">Submit</span>
-                                    <span class="btn-icon"><i class="fas fa-download"></i></span>
-                                </a>
-                            </div> 
-                            <button type="submit">Submit</button>
-                        </form>
-
-                    -->
-
                         <form id="contact-form" name="contact-form" class="contact-form input-control">
                                 <label for="name">Name:</label><br>
                                 <input type="text" id="name" name="name" required><br><br>
@@ -619,8 +359,7 @@
                                         <button type="submit" style="all: unset; padding: 14px 20px; ">Submit</button>
                                     </span>
                                 </a>
-                            </div>
-                            
+                            </div> 
                         </form>
                         
                         <div id="response" class="message-box hidden"></div>
@@ -643,9 +382,6 @@
         <div class="control" data-id="portfolio">
             <i class="fas fa-briefcase"></i>
         </div>
-        <!-- <div class="control" data-id="blogs">
-            <i class="far fa-newspaper"></i>
-        </div> -->
         <div class="control" data-id="contact">
             <i class="fas fa-envelope-open"></i>
         </div>
